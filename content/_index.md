@@ -1,17 +1,17 @@
- 
 +++
-
-title = "Guide for writing markdown slides"
-description = "A Hugo theme for creating Reveal.js presentations"
+title = "My presentation"
 outputs = ["Reveal"]
-aliases = [
-    "/guide/"
-]
-
 +++
 
+# Hello world!
 
-# Short guide to Markdown slides
+This is my first slide.
+
+---
+
+# Hello Mars!
+
+This is my second slide.
 
 ---
 
