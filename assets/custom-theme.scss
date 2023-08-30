@@ -1,7 +1,6 @@
 @import "reveal-js/dist/theme/template/mixins";
 @import "reveal-js/dist/theme/template/settings";
 
-
 // Include theme-specific fonts
 
 // Sans-serif
@@ -70,12 +69,10 @@ section.has-light-background {
 .reveal strong,
 .reveal b {
 	font-weight: bold;
-	color: #b81f0b
 }
 
 .reveal em {
 	font-style: italic;
-	color: #039418
 }
 
 .reveal section img {
@@ -207,3 +204,34 @@ kbd {
   font-weight: normal;
 }
 
+.multiCol {
+	display: flex;
+	align-items: center;
+	vertical-align: baseline;
+	text-align: left;
+	width: 100%;
+}
+
+.col-25 {
+	width: 25%;
+}
+
+.col-50 {
+	width: 50%;
+}
+
+.col-75 {
+	width: 75%;
+}
+
+.green {
+	color: rgb(0, 255, 0);
+}
+
+.red {
+	color: rgb(255, 0, 0);
+}
+
+.text-center {
+	text-align: center;
+}
