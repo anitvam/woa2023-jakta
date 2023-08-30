@@ -1,321 +1,153 @@
 +++
-title = "My presentation"
+title = "JaKtA"
 outputs = ["Reveal"]
 +++
 
-# Hello world!
+# JaKtA: BDI agent-oriented programming in pure Kotlin
 
-This is my first slide.
+<br>
+<br>
 
----
-
-# Hello Mars!
-
-This is my second slide.
+Martina Baiardi, Samuele Burattini, Giovanni Ciatto, and Danilo Pianini
 
 ---
 
-# Headers
+{{% section %}}
 
-# H1
-## H2
-### H3
-#### H4
+## Current trend: multi-paradigm languages
+<br>
+<br>
 
----
+Several languages include more than one paradigm to support development:
 
-# Text
+<br>
 
-normal text
 
-`inline code`
-
-*italic*
-
-**bold**
-
-**_emphasized_**
-
-*__emphasized alternative__*
-
-~~strikethrough~~
-
-[link](http://www.google.com)
-
----
-
-# Lists and enums
-
-1. First ordered list item
-1. Another item
-    * Unordered sub-list.
-    * with two items
-        * another sublist
-            1. With a sub-enum
-            1. yay!
-1. Actual numbers don't matter, just that it's a number
-  1. Ordered sub-list
-1. And another item.
-
----
-
-# Inline images
-
-![Alternative text](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
-
----
-
-## Fallback to shortcodes for resizing
-
-Autoresize specifying
-
-* `max-w` (percent of parent element width) and/or `max-h` (percent of viewport height) as max sizes , and
-* `width` and/or `height` as *exact* sizes (as percent of viewport size)
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" max-h="20">}}
-
----
-
-## Low res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg)
-
----
-
-## Hi res, plain markdown
-
-![](https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg)
-
----
-
-## Low res, default
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" >}}
-
----
-
-## Hi res, default
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
-
----
-
-## Low res, enlarged horizontally
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" width="100">}}
-
----
-
-## Low res, enlarged vertically
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/thumb/6/6c/Scavolino_innevata.jpg/260px-Scavolino_innevata.jpg" height="100">}}
-
----
-
-## Hi res, reduced horizontally
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" width="50">}}
-
----
-
-## Hi res, reduced vertically
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" height="50">}}
-
----
-
-## Hi res, reducing maximum expansion horizontally
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" max-w="50">}}
-
----
-
-## Hi res, reducing maximum expansion vertically
-
-{{< image src="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" max-h="50">}}
-
----
-
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" >}}
-
-# Large images as background
-## (May affect printing)
-
----
-
-{{< slide background-image="https://upload.wikimedia.org/wikipedia/it/6/6c/Scavolino_innevata.jpg" state="blur-animation-light"  transition="fade-in fade-out" >}}
-
-# Also available with blur and custom transitions
-## (May affect printing)
-
----
-
-# $$\LaTeX{}$$
-
-
-Inline equations like $E=mc^2$
-
-$$\frac{n!}{k!(n-k)!} = \binom{n}{k}$$  
-
----
-
-# Code snippets
-
-
-```kotlin
-val x = pippo
-```
-
-```go
-package main
- 
-import "fmt"
- 
-func main() {
-    fmt.Println("Hello world!")
-}
-```
-
----
-
-# Tables
-
-Colons can be used to align columns.
-
-| Tables        | Are           | Cool  |
-| ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
-
-There must be at least 3 dashes separating each header cell.
-The outer pipes (|) are optional, and you don't need to make the 
-raw Markdown line up prettily. You can also use inline Markdown.
-
----
-
-# Quotes
-
-> Multiple
-> lines
-> of
-> a
-> single
-> quote
-> get
-> joined
-
-> Very long one liners of Markdown text automatically get broken into a multiline quotation, which is then rendered in the slides.
-
----
-
-# Fragments
-
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-* {{< frag c="pluto" >}}
-
----
-
-# Graphs via Gravizo
-
-{{< gravizo "Example Gravizo graph" >}}
-  digraph G {
-    aize ="4,4";
-    main [shape=box];
-    main -> parse [weight=8];
-    parse -> execute;
-    main -> init [style=dotted];
-    main -> cleanup;
-    execute -> { make_string; printf}
-    init -> make_string;
-    edge [color=red];
-    main -> printf [style=bold,label="100 times"];
-    make_string [label="make a string"];
-    node [shape=box,style=filled,color=".7 .3 1.0"];
-    execute -> compare;
-  }
-{{< /gravizo >}}
-
----
-
-# Graphs via mermaid.js
-
-```mermaid
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
+| Language | Object-Oriented Paradigm | Functional Paradigm |
+| :---:  | :---: | :---: |
+| OCaml | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Java  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| C#    | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 
 
 ---
 
+However, Agent-Oriented Programming Paradigm is not showing:
 
-# Graphs via mermaid.js with options
+<br>
 
-```mermaid
-%%{init: {'theme':'default', 'themeVariables': { 'fontSize': '.34em', 'fontFamily': 'verdana' }}}%%
-classDiagram
-  Class01 <|-- AveryLongClass : Coosssl
-  Class03 *-- Class04
-  Class05 o-- Class06
-  Class07 .. Class08
-  Class09 --> C2 : Where am i?
-  Class09 --* C3
-  Class09 --|> Class07
-  Class07 : equals()
-  Class07 : Object[] elementData
-  Class01 : size()
-  Class01 : int chimp
-  Class01 : int gorillasaaaaaaaaaaaaaaaaaaaaaa
-  Class08 <--> C2: Cool label
-```
+| Language | Object-Oriented Paradigm | Functional Paradigm | *Agent-Oriented Paradigm* |
+| :---:  | :---: | :---: | :---: |
+| OCaml | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Java  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| C#    | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+
+{{% /section %}}
 
 
 ---
-# Graphs via mermaid.js 2
 
-```mermaid
-graph TD
-  SL([fa:fa-user second level]) --> L[solution]
-  L -- solution email --> db[(mysql)]
-  db --> X[automatic] 
-  X --> CM([fa:fa-users first level])
-  db -- Email --> c([customer support]);
-```
+There are no active proposals for mainstream languages' native support to AOP paradigm
+
+<br>
+<br>
+
+# WHY?
 
 ---
 
-# Graphs via mermaid.js 3
+# AOP Libraries
 
-```mermaid
-gitGraph
-  commit id: "Initialize project"
-  commit id: "Make some changes"
-  branch develop
-  checkout develop
-  commit
-  commit
-  checkout main
-  merge develop
-  commit
-  commit
-```
+<br>
+<br>
+
+{{% multicol %}} {{< col class="col-75">}}
+
+Built for mainstream languages, <br>
+they do not give a rich syntax to describe entities intuitively.
+
+{{< /col >}}
+
+{{< col class="col-25">}}
+
+{{< fragment >}}
+## {{% arrow %}} **custom languages**
+{{< /fragment >}}
+
+{{< /col >}} {{% /multicol %}}
 
 ---
 
-# Import of shared slides
+# AOP Custom Languages
+* {{% frag class="green" c="Great ergonomy while modelling AOP entities"%}}
+* {{% frag class="red" c="Higher learning curve" %}}
+* {{% frag class="red" c="Needs a continuous development to work properly" %}}
+* {{% frag class="red" c="Do not inherit the valid tooling of a mainstream language (IDEs, code suggestions, syntax highlighters, linters...)" %}}
+* {{% frag class="red" c="Do not support multi-paradigm programming, they tipycally provide only AOP abstractions" %}}
+
+---
+
+# A middle road: <br> JaKtA, an internal DSL
+
+<!-- ![](images/ergonomy.png) -->
+
+{{< figure src="images/ergonomy.png" width="60%" >}}
+
+---
+
+# JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents
+<br>
+
+Internal DSL implemented in Kotlin
+
+* {{% frag c="Native tools maintained by the community" %}}
+* {{% frag c="Multi-paradigm support" %}}
+* {{% frag c="Higher learning curve, leveraging a mainstream language" %}}
+* {{% frag c="Good ergonomy" %}}
+
+---
+
+# Why kotlin?
+<br>
+
+{{% multicol %}}{{% col %}}
+* {{% frag c="Direct support to internal DSL creation" %}}
+* {{% frag c="Language with a continuously growing community" %}}
+* {{% frag c="Direct support to multiplatform software development" %}}
+* {{% frag c="Multi-paradigm support" %}}
+{{% /col %}}
+{{< col class="text-center">}}
+{{% fragment %}}
+
+* This
+{{< figure src="images/android-kotlin.png" width="90%" >}}
+
+{{% /fragment %}}
+{{% /col %}}{{% /multicol %}}
+
+
+---
+# Jakta architecture
+
+{{< figure src="images/jacop_modules.svg" width="50%" >}}
+
+---
+
+# Jakta DSL
+
+<div class="w25">
+  {{< gist anitvam 2de7d5a5daef373a32e9bb8179b01590 >}}
+</div>
+
+---
+
+# JakTa Examples
 
 <!-- {{% import path="shared-slides/devops/devops-intro.md" %}} -->
 
