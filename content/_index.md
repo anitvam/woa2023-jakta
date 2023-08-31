@@ -86,14 +86,14 @@ they do not give a rich syntax to describe entities intuitively.
 
 # AOP Custom Languages
 * {{% frag class="green" c="Great ergonomy while modelling AOP entities"%}}
-* {{% frag class="red" c="Higher learning curve" %}}
+* {{% frag class="red" c="Steeper learning curve" %}}
 * {{% frag class="red" c="Needs a continuous development to work properly" %}}
 * {{% frag class="red" c="Do not inherit the valid tooling of a mainstream language (IDEs, code suggestions, syntax highlighters, linters...)" %}}
 * {{% frag class="red" c="Do not support multi-paradigm programming, they tipycally provide only AOP abstractions" %}}
 
 ---
 
-# A middle road: <br> JaKtA, an internal DSL
+# A middle road: <br> hybrid approach
 
 <!-- ![](images/ergonomy.png) -->
 
@@ -142,11 +142,21 @@ Internal DSL implemented in Kotlin
 # Jakta DSL
 <br>
 
-<div class="flex">
-<div>
-  {{< gist anitvam 2de7d5a5daef373a32e9bb8179b01590 >}}
-<div>
-</div>
+```kotlin
+mas {                                                     // BDI specification
+    fun allPlayers(team: String) =                        // Object-oriented style
+      Regex("""<span class="card-title">((\w+|\s)+)<\/span>""").findAll(
+        URL("https://analytics.soccerment.com/en/team/$team").readText()
+      ).map { it.groupValues[1] }                         // Monadic manipulation (functional)
+    listOf("napoli", "milan", "juventus")
+        .flatMap(::allPlayers)                            // Functional style (higher-order function)
+        .forEach { 
+        agent("$player playing for $team") {              // BDI style
+            ...                                           
+        }
+    }
+}
+```
 
 ---
 
