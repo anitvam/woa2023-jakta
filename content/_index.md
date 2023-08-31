@@ -108,7 +108,7 @@ Internal DSL implemented in Kotlin
 
 * {{% frag c="Native tools maintained by the community" %}}
 * {{% frag c="Multi-paradigm support" %}}
-* {{% frag c="Higher learning curve, leveraging a mainstream language" %}}
+* {{% frag c="Gentler learning curve, leveraging a mainstream language" %}}
 * {{% frag c="Good ergonomy" %}}
 
 ---
