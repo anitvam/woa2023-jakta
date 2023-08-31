@@ -27,10 +27,10 @@
 @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono');
 // @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono');
 
-// $backgroundColor: #fff;
+$backgroundColor: #EFF1ED;
 
-// $mainColor: #000;
-// $headingColor: #111;
+$mainColor: #222;
+$headingColor: #222;
 
 $mainFontSize: 2em;
 // $mainFont: 'Roboto', sans-serif;
@@ -226,11 +226,11 @@ kbd {
 }
 
 .green {
-	color: rgb(0, 255, 0);
+	color: green;
 }
 
 .red {
-	color: rgb(255, 0, 0);
+	color: red;
 }
 
 .white {
