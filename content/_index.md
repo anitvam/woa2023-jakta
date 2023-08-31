@@ -140,14 +140,41 @@ Internal DSL implemented in Kotlin
 ---
 
 # Jakta DSL
+<br>
 
-<div class="w25">
+<div class="flex">
+<div>
   {{< gist anitvam 2de7d5a5daef373a32e9bb8179b01590 >}}
+<div>
 </div>
 
 ---
 
-# JakTa Examples
+# JakTa JVM based
+<br>
 
-<!-- {{% import path="shared-slides/devops/devops-intro.md" %}} -->
+{{< figure src="images/tictactoe-android.png" width="50%" >}}
 
+---
+
+# Future work 
+<br>
+
+* {{% fragment %}}
+{{% multicol %}}{{% col class="col-25" %}}
+**Multiplatform targeting**
+{{% /col %}}{{% col class="col-75"%}}
+{{< figure src="images/jakta-mp.png" >}}
+{{% /col %}}{{% /multicol %}}
+{{% /fragment %}}
+* {{% frag c="**Pluggable concurrency model**, that clearly separates BDI definition and threading"%}}
+* {{% frag c="**Improvement of the DSL syntax** to thin the layer between AOP and other paradigms"%}}
+
+---
+
+# try jakta
+<br>
+
+[github.com/jakta-bdi/jakta-examples](https://github.com/jakta-bdi/jakta-examples)
+
+{{< figure src="images/qr-code.svg" width="20%" >}}
