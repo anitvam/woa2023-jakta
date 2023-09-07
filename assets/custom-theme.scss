@@ -248,3 +248,25 @@ kbd {
 	display: flex;
 	justify-content: center;
 }
+
+.reveal .nohighlight {
+	max-height: 100vh;
+}
+
+.reveal .slide-background {
+	background-color: $backgroundColor;
+	background-image: url("../images/logo.svg");
+	background-repeat: no-repeat;
+	background-position: -5% 94%;
+	background-size: 10%;
+	background-clip: border-box;
+}
+
+.reveal .slide-background:after {
+	content: "M. Baiardi, S. Burattini, G. Ciatto, D. Pianini - JaKtA: BDI Agent-Oriented Programming in pure Kotlin - EUMAS 2023";
+	position: absolute;
+	bottom: 2.5%;
+	left: 1%;
+	z-index: -1;
+	font-size: .5em;
+  }

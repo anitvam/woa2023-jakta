@@ -16,46 +16,41 @@ Martina Baiardi, Samuele Burattini, Giovanni Ciatto, and Danilo Pianini
 
 ## Current trend: multi-paradigm languages
 <br>
-<br>
 
 Several languages include more than one paradigm to support development:
 
-<br>
 
-
-| Language | Object-Oriented Paradigm | Functional Paradigm |
+| Language | Object-Oriented | Functional |
 | :---:  | :---: | :---: |
-| OCaml | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| Java  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| C#    | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-
+| Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} |
+| C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
+| Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
+| JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} |
 
 ---
 
-However, Agent-Oriented Programming Paradigm is not showing:
+However, Agent-Oriented Programming Paradigm is not included:
 
-<br>
-
-| Language | Object-Oriented Paradigm | Functional Paradigm | *Agent-Oriented Paradigm* |
+| Language | Object-Oriented | Functional | Agent-Oriented |
 | :---:  | :---: | :---: | :---: |
-| OCaml | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
-| Java  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
-| C#    | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
-| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
-
+| Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 {{% /section %}}
 
 
 ---
 
 There are no active proposals for mainstream languages' native support to AOP paradigm
-
-<br>
 <br>
 
 # WHY?
@@ -69,15 +64,16 @@ There are no active proposals for mainstream languages' native support to AOP pa
 
 {{% multicol %}} {{< col class="col-75">}}
 
-Built for mainstream languages, <br>
-they do not give a rich syntax to describe entities intuitively.
+* Built for mainstream languages
+* Subject to the **syntactic restrictions** of their host language
+  * True AOP feeling hard to achieve
 
 {{< /col >}}
 
 {{< col class="col-25">}}
 
 {{< fragment >}}
-## {{% arrow %}} **custom languages**
+## <i class="fa-solid fa-arrow-right"></i> **custom AOP languages**
 {{< /fragment >}}
 
 {{< /col >}} {{% /multicol %}}
@@ -85,11 +81,12 @@ they do not give a rich syntax to describe entities intuitively.
 ---
 
 # AOP Custom Languages
-* {{% frag class="green" c="Great ergonomy while modelling AOP entities"%}}
-* {{% frag class="red" c="Steeper learning curve" %}}
-* {{% frag class="red" c="Needs a continuous development to work properly" %}}
-* {{% frag class="red" c="Do not inherit the valid tooling of a mainstream language (IDEs, code suggestions, syntax highlighters, linters...)" %}}
-* {{% frag class="red" c="Do not support multi-paradigm programming, they tipycally provide only AOP abstractions" %}}
+* <span class="green">Great ergonomy for AOP (made by purpose) </span>
+* <span class="red">AOP-specific, not multi-paradigm </span>
+* <span class="red">Steep learning curve</span>
+* <span class="red">Require custom tooling (IDEs, code suggestions, syntax highlighters, linters...)</span>
+* <span class="red">Small community</span>
+* <span class="red">High maintenance cost!</span>
 
 ---
 
@@ -102,14 +99,17 @@ they do not give a rich syntax to describe entities intuitively.
 ---
 
 # JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents
-<br>
 
 Internal DSL implemented in Kotlin
 
-* {{% frag c="Native tools maintained by the community" %}}
-* {{% frag c="Multi-paradigm support" %}}
-* {{% frag c="Gentler learning curve, leveraging a mainstream language" %}}
-* {{% frag c="Good ergonomy" %}}
+* Multi-paradigm support: OOP + FP + AOP
+* Gentler learning curve
+  * Great learning resources for Kotlin
+  * Significantly large community for help
+* Reuses 100% of the existing Kotlin toolchain
+  * Developed and maintained by the language authors and the community of Kotlin programmers
+  * Maintenance is greatly reduced
+* Good ergonomy
 
 ---
 
@@ -117,18 +117,17 @@ Internal DSL implemented in Kotlin
 <br>
 
 {{% multicol %}}{{% col %}}
-* {{% frag c="Direct support to internal DSL creation" %}}
-* {{% frag c="Language with a continuously growing community" %}}
-* {{% frag c="Direct support to multiplatform software development" %}}
-* {{% frag c="Multi-paradigm support" %}}
+* Natively multi-paradigm (OOP + FP)
+* Direct support to internal DSL creation
+* First class support to multiplatform development
 {{% /col %}}
+
 {{< col class="text-center">}}
-{{% fragment %}}
 
-* This
-{{< figure src="images/android-kotlin.png" width="90%" >}}
+* Growing community
+  * Strongly pushed by Google for Android
+{{< figure src="images/android-kotlin.png" width="70%" >}}
 
-{{% /fragment %}}
 {{% /col %}}{{% /multicol %}}
 
 
@@ -139,46 +138,55 @@ Internal DSL implemented in Kotlin
 
 ---
 
-# Jakta DSL
-<br>
+## Jakta: multi-paradigm AOP/BDI+OOP+FP
+
 
 ```kotlin
-mas {                                                     // BDI specification
-    fun allPlayers(team: String) =                        // Object-oriented style
-      Regex("""<span class="card-title">((\w+|\s)+)<\/span>""").findAll(
-        URL("https://analytics.soccerment.com/en/team/$team").readText()
-      ).map { it.groupValues[1] }                         // Monadic manipulation (functional)
-    listOf("napoli", "milan", "juventus")
-        .flatMap(::allPlayers)                            // Functional style (higher-order function)
-        .forEach { 
-        agent("$player playing for $team") {              // BDI style
-            ...                                           
-        }
-    }
-}
+mas {                                                   // BDI specification
+  fun allPlayers(team: String) =
+    Regex("""<a\s(\X*?)\sdata-cy="player">(.*)<\/a>""") // Object-oriented regex library
+        .findAll(URL("https://www.besoccer.com/team/squad/$team").readText())
+        .map { team to it.groupValues[2] }              // Lambda expression (Functional style)
+
+  listOf("napoli", "milan", "internazionale")           // Kotlin standard library
+      .flatMap(::allPlayers)                            // Higher-order function (Functional style)
+      .forEach { (team, player) ->                      // Destructuring declaration
+          agent(player) {
+              beliefs { fact { squad(team) } }
+              goals { achieve(start) }
+              plans {
+                  +achieve(start) onlyIf { squad(S).fromSelf } then {
+                      execute(print("Hello! I play for", S))
+                  }
+              }
+          }
+      }
+}.start()
 ```
+
+<i class="fa-solid fa-file-code"></i> [SoccerMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/soccer/SoccersMas.kt)
 
 ---
 
-# JakTa JVM based
+# JakTa 
 <br>
 
-{{< figure src="images/tictactoe-android.png" width="50%" >}}
+* JVM based
+   * Android support 
+
+   {{< figure src="images/tictactoe-android.png" width="50%" >}}
 
 ---
 
 # Future work 
-<br>
 
-* {{% fragment %}}
-{{% multicol %}}{{% col class="col-25" %}}
+* {{% multicol %}}{{% col class="col-4" %}}
 **Multiplatform targeting**
-{{% /col %}}{{% col class="col-75"%}}
+{{% /col %}}{{% col class="col-8"%}}
 {{< figure src="images/jakta-mp.png" >}}
 {{% /col %}}{{% /multicol %}}
-{{% /fragment %}}
-* {{% frag c="**Pluggable concurrency model**, that clearly separates BDI definition and threading"%}}
-* {{% frag c="**Improvement of the DSL syntax** to thin the layer between AOP and other paradigms"%}}
+* **Pluggable concurrency model**, that clearly separates BDI definition and threading
+* **Improvement of the DSL syntax** to thin the layer between AOP and other paradigms
 
 ---
 
