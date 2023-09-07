@@ -24,10 +24,10 @@ Several languages include more than one paradigm to support development:
 | :---:  | :---: | :---: |
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} |
 | C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
-| Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
 | Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
 | JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} |
 
@@ -39,10 +39,10 @@ However, Agent-Oriented Programming Paradigm is not included:
 | :---:  | :---: | :---: | :---: |
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 | C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
-| Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 | Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 | JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 {{% /section %}}
