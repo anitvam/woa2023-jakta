@@ -17,40 +17,40 @@ Martina Baiardi, Samuele Burattini, Giovanni Ciatto, and Danilo Pianini
 ## Current trend: multi-paradigm languages
 <br>
 
-Several languages include more than one paradigm to support development:
+Several languages include more than one paradigm:
 
 
 | Language | Object-Oriented | Functional |
 | :---:  | :---: | :---: |
-| Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
-| Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} |
 | C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
-| Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
+| Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
+| Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Python | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
 | JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} |
 
 ---
 
-However, Agent-Oriented Programming Paradigm is not included:
+However, Agent-Orientation / BDI is never considered
 
-| Language | Object-Oriented | Functional | Agent-Oriented |
+| Language | Object-Oriented | Functional | Agent-Oriented
 | :---:  | :---: | :---: | :---: |
+| Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Ruby  | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
 | Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} | {{< cross >}} {{< /cross >}} |
-| Java  | {{< tick >}} {{< /tick >}} | {{< maybe >}} (Java 8){{< /maybe >}} | {{< cross >}} {{< /cross >}} |
-| C#    | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
-| Python| {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
+| Python | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 | JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} | {{< cross >}} {{< /cross >}} |
 {{% /section %}}
 
 
 ---
 
-There are no active proposals for mainstream languages' native support to AOP paradigm
+#### No *active* proposals for including *AOP/BDI abstractions* into mainstream languages
 <br>
 
 # WHY?
@@ -66,7 +66,7 @@ There are no active proposals for mainstream languages' native support to AOP pa
 
 * Built for mainstream languages
 * Subject to the **syntactic restrictions** of their host language
-  * True AOP feeling hard to achieve
+  * "True" AOP/BDI feeling hardly achieved
 
 {{< /col >}}
 
@@ -90,7 +90,7 @@ There are no active proposals for mainstream languages' native support to AOP pa
 
 ---
 
-# A middle road: <br> hybrid approach
+# A hybrid approach
 
 <!-- ![](images/ergonomy.png) -->
 
@@ -100,14 +100,14 @@ There are no active proposals for mainstream languages' native support to AOP pa
 
 # JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents
 
-Internal DSL implemented in Kotlin
+Internal Domain-Specific Language (DSL) implemented in Kotlin
 
 * Multi-paradigm support: OOP + FP + AOP
-* Gentler learning curve
+* Hosted on a mainstream language: gentle learning curve
   * Great learning resources for Kotlin
   * Significantly large community for help
-* Reuses 100% of the existing Kotlin toolchain
-  * Developed and maintained by the language authors and the community of Kotlin programmers
+* Reuses the entire existing Kotlin toolchain
+  * Developed and *maintained* by the language maintainers and the community
   * Maintenance is greatly reduced
 * Good ergonomy
 
@@ -118,8 +118,11 @@ Internal DSL implemented in Kotlin
 
 {{% multicol %}}{{% col %}}
 * Natively multi-paradigm (OOP + FP)
-* Direct support to internal DSL creation
-* First class support to multiplatform development
+* Statically typed
+  * With a good IDE, helps understanding what can be written where
+* Direct support to internal DSLs
+  * a.k.a "Type-safe builders" in the Kotlin documentation
+* Support for multiplatform development
 {{% /col %}}
 
 {{< col class="text-center">}}
@@ -164,29 +167,31 @@ mas {                                                   // BDI specification
 }.start()
 ```
 
-<i class="fa-solid fa-file-code"></i> [SoccerMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/soccer/SoccersMas.kt)
+<i class="fa-solid fa-file-code"></i> [SoccerMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/soccer/SoccerMas.kt)
 
 ---
 
-# JakTa 
+# JakTa
 <br>
 
-* JVM based
-   * Android support 
+(currently) JVM based with native Android support, mobile-ready
 
-   {{< figure src="images/tictactoe-android.png" width="50%" >}}
+{{< figure src="images/tictactoe-android.png" width="50%" >}}
+
+
+<i class="fa-solid fa-file-code"></i> [TicTacToeMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/tris/TicTacToeMas.kt)
 
 ---
 
-# Future work 
+# Future work
 
 * {{% multicol %}}{{% col class="col-4" %}}
 **Multiplatform targeting**
 {{% /col %}}{{% col class="col-8"%}}
 {{< figure src="images/jakta-mp.png" >}}
 {{% /col %}}{{% /multicol %}}
-* **Pluggable concurrency model**, that clearly separates BDI definition and threading
-* **Improvement of the DSL syntax** to thin the layer between AOP and other paradigms
+* **Pluggable concurrency model**, neatly searating BDI definitions and the underlying threading
+* **Improved DSL syntax** to further improve the multi-paradigm integration (AOP/BDI + OOP + FP)
 
 ---
 
