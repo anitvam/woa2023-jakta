@@ -6,9 +6,13 @@ outputs = ["Reveal"]
 # JaKtA: BDI agent-oriented programming in pure Kotlin
 
 <br>
-<br>
+
 
 Martina Baiardi, Samuele Burattini, Giovanni Ciatto, and Danilo Pianini
+
+<small>Department of Computer Science and Engineering (DISI)<br>
+Alma Mater Studiorum — Università di Bologna <br>
+Via dell’Università 50, 47522 Cesena (FC), Italy </small>
 
 ---
 
