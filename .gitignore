@@ -5,3 +5,5 @@ _gen/
 *.hprof
 *build.lock
 .vscode/
+presentation.md
+
