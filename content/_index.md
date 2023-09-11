@@ -176,10 +176,12 @@ mas {                                                   // BDI specification
 
 (currently) JVM based with native Android support, mobile-ready
 
-{{< figure src="images/tictactoe-android.png" width="50%" >}}
+{{< figure src="images/android-tictactoe.png" width="50%" >}}
 
 
 <i class="fa-solid fa-file-code"></i> [TicTacToeMas.kt](https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/tris/TicTacToeMas.kt)
+
+<i class="fa-brands fa-android"></i> [Android Project](https://github.com/jakta-bdi/jakta-android-example)
 
 ---
 
