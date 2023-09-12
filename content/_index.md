@@ -31,7 +31,7 @@ Several languages include more than one paradigm:
 | Scala | {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Kotlin| {{< tick >}} {{< /tick >}} | {{< tick >}} {{< /tick >}} |
 | Ruby  | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
-| Caml | {{< tick >}} (OCaml) {{< /tick >}} | {{< tick >}} {{< /tick >}} |
+| Caml | {{< maybe >}} (OCaml) {{< /maybe >}} | {{< tick >}} {{< /tick >}} |
 | Python | {{< tick >}} {{< /tick >}} | {{< maybe >}} {{< /maybe >}} |
 | JavaScript| {{< maybe >}} {{< /maybe >}} | {{< maybe >}} {{< /maybe >}} |
 
@@ -77,7 +77,7 @@ However, Agent-Orientation / BDI is never considered
 {{< col class="col-25">}}
 
 {{< fragment >}}
-## <i class="fa-solid fa-arrow-right"></i> **custom AOP languages**
+## <i class="fa-solid fa-arrow-right"></i> **custom language**
 {{< /fragment >}}
 
 {{< /col >}} {{% /multicol %}}
@@ -85,8 +85,8 @@ However, Agent-Orientation / BDI is never considered
 ---
 
 # AOP Custom Languages
-* <span class="green">Great ergonomy for AOP (made by purpose) </span>
-* <span class="red">AOP-specific, not multi-paradigm </span>
+* <span class="green">Great ergonomy for BDI AOP (made by purpose) </span>
+* <span class="red">BDI-specific, not multi-paradigm </span>
 * <span class="red">Steep learning curve</span>
 * <span class="red">Require custom tooling (IDEs, code suggestions, syntax highlighters, linters...)</span>
 * <span class="red">Small community</span>
@@ -106,7 +106,7 @@ However, Agent-Orientation / BDI is never considered
 
 Internal Domain-Specific Language (DSL) implemented in Kotlin
 
-* Multi-paradigm support: OOP + FP + AOP
+* Multi-paradigm support: OOP + FP + BDI AOP
 * Hosted on a mainstream language: gentle learning curve
   * Great learning resources for Kotlin
   * Significantly large community for help
