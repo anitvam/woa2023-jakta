@@ -61,7 +61,7 @@ However, Agent-Orientation / BDI is never considered
 
 ---
 
-# AOP Libraries
+# BDI Libraries
 
 <br>
 <br>
