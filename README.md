@@ -1,6 +1,6 @@
 # Slides for WOA 2023 
 
-Quick link to online [deployment](https://anitvam.github.io/slides-eumas-2023/).
+Quick link to online [deployment](https://anitvam.github.io/woa2023-jakta/).
 
 ### Download
 ```bash
