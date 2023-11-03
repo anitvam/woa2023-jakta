@@ -1,4 +1,4 @@
-baseURL = "https://anitvam.github.io/slides-eumas-2023"
+baseURL = "https://anitvam.github.io/woa2023-jakta"
 languageCode = "en-us"
 title = "A Hugo theme for creating Reveal.js presentations"
 disableKinds = ["sitemap", "RSS"]
