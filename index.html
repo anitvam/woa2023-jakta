@@ -1,0 +1,436 @@
+<!DOCTYPE html><html lang="en"><head>
+	<meta name="generator" content="Hugo 0.120.3">
+    <meta charset="utf-8">
+<title>JaKtA</title>
+
+<meta name="author" content="Martina Baiardi">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><link rel="stylesheet" href="/slides-eumas-2023/reveal-js/dist/reset.css">
+<link rel="stylesheet" href="/slides-eumas-2023/reveal-js/dist/reveal.css">
+  <link rel="stylesheet" href="/slides-eumas-2023/css/custom-theme.min.e0685e4b51559fd8ed9eb5c783fb967c514bab68a0c2497e8ae6dd3d0a0b84d7.css" id="theme"><link rel="stylesheet" href="/slides-eumas-2023/highlight-js/solarized-dark.min.css">
+<link rel="stylesheet" href="https://gitcdn.link/repo/DanySK/css-blur-animation/master/blur.css">
+<link href="https://fonts.googleapis.com/css?family=Roboto Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oxygen Mono" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Ubuntu Mono" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+<script src="https://kit.fontawesome.com/81ac037be0.js" crossorigin="anonymous"></script>
+
+
+
+  </head>
+  <body>
+    
+    <div class="reveal">
+      <div class="slides">
+  
+
+    <section><h1 id="jakta-bdi-agent-oriented-programming-in-pure-kotlin">JaKtA: BDI agent-oriented programming in pure Kotlin</h1>
+<br>
+<p>Martina Baiardi, Samuele Burattini, Giovanni Ciatto, and Danilo Pianini</p>
+<p><small>Department of Computer Science and Engineering (DISI)<br>
+Alma Mater Studiorum — Università di Bologna <br>
+Via dell’Università 50, 47522 Cesena (FC), Italy </small></p>
+</section><section>
+
+
+<section data-shortcode-section="">
+<h2 id="current-trend-multi-paradigm-languages">Current trend: multi-paradigm languages</h2>
+<br>
+<p>Several languages include more than one paradigm:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Language</th>
+<th style="text-align:center">Object-Oriented</th>
+<th style="text-align:center">Functional</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Java</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> (Java 8)</div></td>
+</tr>
+<tr>
+<td style="text-align:center">C#</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Scala</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Kotlin</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Ruby</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Caml</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> (OCaml) </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">JavaScript</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+</tr>
+</tbody>
+</table>
+</section><section>
+<p>However, Agent-Orientation / BDI is never considered</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Language</th>
+<th style="text-align:center">Object-Oriented</th>
+<th style="text-align:center">Functional</th>
+<th style="text-align:center">Agent-Oriented</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">Java</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> (Java 8)</div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">C#</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Scala</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Kotlin</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Ruby</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Caml</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> (OCaml) </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">Python</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: green;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+<tr>
+<td style="text-align:center">JavaScript</td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-check" style="color: orange;"></i> </div></td>
+<td style="text-align:center"><div><i class="fa-solid fa-xmark" style="color: red;"></i> </div></td>
+</tr>
+</tbody>
+</table>
+
+</section>
+</section><section>
+<h4 id="no-active-proposals-for-including-aopbdi-abstractions-into-mainstream-languages">No <em>active</em> proposals for including <em>AOP/BDI abstractions</em> into mainstream languages</h4>
+<br>
+<h1 id="why">WHY?</h1>
+</section><section>
+<h1 id="bdi-libraries">BDI Libraries</h1>
+<br>
+<br>
+
+<div class="multiCol "><div class="col col-50 col-75">
+<ul>
+<li>Built for mainstream languages</li>
+<li>Subject to the <strong>syntactic restrictions</strong> of their host language
+<ul>
+<li>“True” AOP/BDI feeling hardly achieved</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="col col-50 col-25">
+<span class="fragment ">
+<h2 id="i-classfa-solid-fa-arrow-righti-custom-language"><i class="fa-solid fa-arrow-right"></i> <strong>custom language</strong></h2>
+</span>
+</div> </div>
+</section><section>
+<h1 id="aop-custom-languages">AOP Custom Languages</h1>
+<ul>
+<li><span class="green">Great ergonomy for BDI AOP (made by purpose) </span></li>
+<li><span class="red">BDI-specific, not multi-paradigm </span></li>
+<li><span class="red">Steep learning curve</span></li>
+<li><span class="red">Require custom tooling (IDEs, code suggestions, syntax highlighters, linters…)</span></li>
+<li><span class="red">Small community</span></li>
+<li><span class="red">High maintenance cost!</span></li>
+</ul>
+</section><section>
+<h1 id="a-hybrid-approach">A hybrid approach</h1>
+<!-- ![](images/ergonomy.png) -->
+<figure><img src="images/ergonomy.png" width="60%">
+</figure>
+
+</section><section>
+<h1 id="jakta-br-ujauson-like-ukuoutulin-uaugents">JaKtA: <br> <u>Ja</u>son-like <u>K</u>o<u>t</u>lin <u>A</u>gents</h1>
+<p>Internal Domain-Specific Language (DSL) implemented in Kotlin</p>
+<ul>
+<li>Multi-paradigm support: OOP + FP + BDI AOP</li>
+<li>Hosted on a mainstream language: gentle learning curve
+<ul>
+<li>Great learning resources for Kotlin</li>
+<li>Significantly large community for help</li>
+</ul>
+</li>
+<li>Reuses the entire existing Kotlin toolchain
+<ul>
+<li>Developed and <em>maintained</em> by the language maintainers and the community</li>
+<li>Maintenance is greatly reduced</li>
+</ul>
+</li>
+<li>Good ergonomy</li>
+</ul>
+</section><section>
+<h1 id="why-kotlin">Why kotlin?</h1>
+<br>
+
+<div class="multiCol "><div class="col col-50 "><ul>
+<li>Natively multi-paradigm (OOP + FP)</li>
+<li>Statically typed
+<ul>
+<li>With a good IDE, helps understanding what can be written where</li>
+</ul>
+</li>
+<li>Direct support to internal DSLs
+<ul>
+<li>a.k.a “Type-safe builders” in the Kotlin documentation</li>
+</ul>
+</li>
+<li>Support for multiplatform development</li>
+</ul>
+</div>
+<div class="col col-50 text-center">
+<ul>
+<li>Growing community
+<ul>
+<li>Strongly pushed by Google for Android</li>
+</ul>
+</li>
+</ul>
+<figure><img src="images/android-kotlin.png" width="70%">
+</figure>
+</div></div>
+</section><section>
+<h1 id="jakta-architecture">Jakta architecture</h1>
+<figure><img src="images/jacop_modules.svg" width="50%">
+</figure>
+
+</section><section>
+<h2 id="jakta-multi-paradigm-aopbdioopfp">Jakta: multi-paradigm AOP/BDI+OOP+FP</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="nohighlight" data-noescape=""><span style="display:flex;"><span><span style="color:#000">mas</span> <span style="color:#000;font-weight:bold">{</span>                                                   <span style="color:#8f5902;font-style:italic">// BDI specification
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>  <span style="color:#204a87;font-weight:bold">fun</span> <span style="color:#000">allPlayers</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">:</span> <span style="color:#000">String</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">=</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#000">Regex</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"""&lt;a\s(\X*?)\sdata-cy="player"&gt;(.*)&lt;\/a&gt;"""</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#8f5902;font-style:italic">// Object-oriented regex library
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>        <span style="color:#000;font-weight:bold">.</span><span style="color:#000">findAll</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">URL</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"https://www.besoccer.com/team/squad/</span><span style="color:#4e9a06">$team</span><span style="color:#4e9a06">"</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">readText</span><span style="color:#000;font-weight:bold">())</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#000;font-weight:bold">.</span><span style="color:#000">map</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">team</span> <span style="color:#000">to</span> <span style="color:#204a87;font-weight:bold">it</span><span style="color:#000;font-weight:bold">.</span><span style="color:#000">groupValues</span><span style="color:#000;font-weight:bold">[</span><span style="color:#0000cf;font-weight:bold">2</span><span style="color:#000;font-weight:bold">]</span> <span style="color:#000;font-weight:bold">}</span>              <span style="color:#8f5902;font-style:italic">// Lambda expression (Functional style)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>
+</span></span><span style="display:flex;"><span>  <span style="color:#000">listOf</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"napoli"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">"milan"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#4e9a06">"internazionale"</span><span style="color:#000;font-weight:bold">)</span>           <span style="color:#8f5902;font-style:italic">// Kotlin standard library
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">.</span><span style="color:#000">flatMap</span><span style="color:#000;font-weight:bold">(</span><span style="color:#ce5c00;font-weight:bold">::</span><span style="color:#000">allPlayers</span><span style="color:#000;font-weight:bold">)</span>                            <span style="color:#8f5902;font-style:italic">// Higher-order function (Functional style)
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>      <span style="color:#000;font-weight:bold">.</span><span style="color:#000">forEach</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">player</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#ce5c00;font-weight:bold">-&gt;</span>                      <span style="color:#8f5902;font-style:italic">// Destructuring declaration
+</span></span></span><span style="display:flex;"><span><span style="color:#8f5902;font-style:italic"></span>          <span style="color:#000">agent</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">player</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">beliefs</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">fact</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">squad</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">team</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">goals</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">achieve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000">plans</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">+</span><span style="color:#000">achieve</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">)</span> <span style="color:#000">onlyIf</span> <span style="color:#000;font-weight:bold">{</span> <span style="color:#000">squad</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">S</span><span style="color:#000;font-weight:bold">).</span><span style="color:#000">fromSelf</span> <span style="color:#000;font-weight:bold">}</span> <span style="color:#000">then</span> <span style="color:#000;font-weight:bold">{</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#000">execute</span><span style="color:#000;font-weight:bold">(</span><span style="color:#000">print</span><span style="color:#000;font-weight:bold">(</span><span style="color:#4e9a06">"Hello! I play for"</span><span style="color:#000;font-weight:bold">,</span> <span style="color:#000">S</span><span style="color:#000;font-weight:bold">))</span>
+</span></span><span style="display:flex;"><span>                  <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>              <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#000;font-weight:bold">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#000;font-weight:bold">}.</span><span style="color:#000">start</span><span style="color:#000;font-weight:bold">()</span>
+</span></span></code></pre></div><p><i class="fa-solid fa-file-code"></i> <a href="https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/soccer/SoccerMas.kt">SoccerMas.kt</a></p>
+</section><section>
+<h1 id="jakta">JakTa</h1>
+<br>
+<p>(currently) JVM based with native Android support, mobile-ready</p>
+<figure><img src="images/android-tictactoe.png" width="50%">
+</figure>
+
+<p><i class="fa-solid fa-file-code"></i> <a href="https://github.com/jakta-bdi/jakta-examples/blob/main/src/main/kotlin/it/unibo/jakta/agents/examples/tris/TicTacToeMas.kt">TicTacToeMas.kt</a></p>
+<p><i class="fa-brands fa-android"></i> <a href="https://github.com/jakta-bdi/jakta-android-example">Android Project</a></p>
+</section><section>
+<h1 id="future-work">Future work</h1>
+<ul>
+<li>
+<div class="multiCol "><div class="col col-50 col-4"><p><strong>Multiplatform targeting</strong></p>
+</div>
+<div class="col col-50 col-8"><figure><img src="images/jakta-mp.png">
+</figure>
+</div></div></li>
+<li><strong>Pluggable concurrency model</strong>, neatly searating BDI definitions and the underlying threading</li>
+<li><strong>Improved DSL syntax</strong> to further improve the multi-paradigm integration (AOP/BDI + OOP + FP)</li>
+</ul>
+</section><section>
+<h1 id="try-jakta">try jakta</h1>
+<br>
+<p><a href="https://github.com/jakta-bdi/jakta-examples">github.com/jakta-bdi/jakta-examples</a></p>
+<figure><img src="images/qr-code.svg" width="20%">
+</figure>
+
+</section>
+
+  
+
+
+</div>
+      
+
+    </div>
+<script type="text/javascript" src="/slides-eumas-2023/reveal-hugo/object-assign.js"></script>
+
+<a href="/slides-eumas-2023/reveal-js/dist/print/" id="print-location" style="display: none;"></a>
+
+<script type="application/json" id="reveal-hugo-site-params">{"custom_theme":"custom-theme.scss","custom_theme_compile":true,"custom_theme_options":{"enablesourcemap":true,"targetpath":"css/custom-theme.css"},"height":"900","highlight_theme":"solarized-dark","history":true,"mermaid":[{}],"slide_number":true,"theme":"white","transition":"slide","transition_speed":"fast","width":"1440"}</script>
+<script type="application/json" id="reveal-hugo-page-params">null</script>
+
+<script src="/slides-eumas-2023/reveal-js/dist/reveal.js"></script>
+
+
+  
+  
+  <script type="text/javascript" src="/slides-eumas-2023/reveal-js/plugin/markdown/markdown.js"></script>
+  
+  <script type="text/javascript" src="/slides-eumas-2023/reveal-js/plugin/highlight/highlight.js"></script>
+  
+  <script type="text/javascript" src="/slides-eumas-2023/reveal-js/plugin/zoom/zoom.js"></script>
+  
+  <script type="text/javascript" src="/slides-eumas-2023/reveal-js/plugin/notes/notes.js"></script>
+  
+  
+  <script type="text/javascript" src="/slides-eumas-2023/reveal-js/plugin/notes/notes.js"></script>
+
+
+
+
+<script type="text/javascript">
+  
+  
+  function camelize(map) {
+    if (map) {
+      Object.keys(map).forEach(function(k) {
+        newK = k.replace(/(\_\w)/g, function(m) { return m[1].toUpperCase() });
+        if (newK != k) {
+          map[newK] = map[k];
+          delete map[k];
+        }
+      });
+    }
+    return map;
+  }
+
+  var revealHugoDefaults = { center: true, controls: true, history: true, progress: true, transition: "slide" };
+
+  var revealHugoPlugins = { 
+    plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
+   };
+  var revealHugoSiteParams = JSON.parse(document.getElementById('reveal-hugo-site-params').innerHTML);
+  var revealHugoPageParams = JSON.parse(document.getElementById('reveal-hugo-page-params').innerHTML);
+  
+  var options = Object.assign({},
+    camelize(revealHugoDefaults),
+    camelize(revealHugoSiteParams),
+    camelize(revealHugoPageParams),
+    camelize(revealHugoPlugins));
+  Reveal.initialize(options);
+</script>
+
+
+
+
+
+
+  
+
+  
+
+  
+
+
+
+    <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']]
+      },
+      svg: {
+        fontCache: 'global'
+      }
+    };
+</script>
+
+<script type="text/javascript" id="MathJax-script" async="" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-svg.js">
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+<script>
+  if (/.*?(\?|&)print-pdf/.test(window.location.toString())) {
+      var ytVideos = document.getElementsByTagName("iframe")
+      for (let i = 0; i < ytVideos.length; i++) {
+          var videoFrame = ytVideos[i]
+          var isYouTube = /^https?:\/\/(www.)youtube\.com\/.*/.test(videoFrame.src)
+          if (isYouTube) {
+              console.log(`Removing ${videoFrame.src}`)
+              var parent = videoFrame.parentElement
+              videoFrame.remove()
+              var p = document.createElement('p')
+              p.append(
+                  document.createTextNode(
+                      "There was an embedded video here, but it is disabled in the printed version of the slides."
+                  )
+              )
+              p.append(document.createElement('br'))
+              p.append(
+                  document.createTextNode(
+                      `Visit instead ${
+                          videoFrame.src
+                      } or ${
+                          videoFrame.src.replace(
+                              /(^https?:\/\/(www.)youtube\.com)\/(embed\/)(\w+).*/,
+                              "https://www.youtube.com/watch?v=$4"
+                          )
+                      }`
+                  )
+              )
+              parent.appendChild(p)
+          }
+      }
+  }
+</script>
+
+
+    
+  
+
+</body></html>
