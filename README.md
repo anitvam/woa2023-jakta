@@ -1,10 +1,10 @@
-# Slides for EUMAS 2023 main conference 
+# Slides for WOA 2023 
 
 Quick link to online [deployment](https://anitvam.github.io/slides-eumas-2023/).
 
 ### Download
 ```bash
-git clone --recursive git@github.com:anitvam/slides-eumas-2023.git
+git clone --recursive git@github.com:anitvam/woa2023-jakta.git
 ```
 
 ### Update
@@ -21,4 +21,4 @@ hugo
 ```
 hugo server
 ```
-and then available at `http://localhost:1313/slides-eumas-2023/#/`.
+and then available at `http://localhost:1313/woa2023-jakta/#/`.
